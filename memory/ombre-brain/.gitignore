@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv/
+.claude/settings.local.json
+.claude/hooks/__pycache__/
+.vscode/
+CLAUDE_CONNECT.txt
+ombre-server*.log
+ombre-server.pid
+config.yaml
+buckets/dynamic/
+buckets/archive/
+buckets/permanent/
+scarp_paper

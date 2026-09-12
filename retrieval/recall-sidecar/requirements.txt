@@ -1,0 +1,6 @@
+# The VPS already has these in the Ombre Brain virtualenv.
+python-frontmatter>=1.1.0
+jieba>=0.42.1
+
+# Local semantic retrieval backend.
+fastembed>=0.8.0

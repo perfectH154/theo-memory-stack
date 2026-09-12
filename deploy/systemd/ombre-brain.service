@@ -1,0 +1,17 @@
+[Unit]
+Description=Ombre Brain MCP Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/companion/ombre-brain/app
+ExecStart=/opt/companion/ombre-brain/app/.venv/bin/python /opt/companion/ombre-brain/app/server.py
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=/var/lib/companion/ombre-brain /opt/companion/ombre-brain/app
+
+[Install]
+WantedBy=multi-user.target

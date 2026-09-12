@@ -1,0 +1,12 @@
+[Unit]
+Description=Periodic Ombre recall sidecar index refresh
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=15min
+RandomizedDelaySec=60
+Persistent=true
+Unit=companion-recall-index.service
+
+[Install]
+WantedBy=timers.target

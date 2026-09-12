@@ -1,0 +1,17 @@
+[Unit]
+Description=Refresh Ombre recall sidecar index
+After=companion-recall-sidecar.service
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+WorkingDirectory=/opt/companion/recall-sidecar
+ExecStart=/opt/companion/recall-sidecar/.venv/bin/python /opt/companion/recall-sidecar/indexer.py --buckets-dir /var/lib/companion/ombre-brain/buckets --index-db /var/lib/companion/ombre-brain/recall/recall.sqlite3 --include-archive --embedding-model BAAI/bge-small-zh-v1.5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=false
+ReadOnlyPaths=/var/lib/companion/ombre-brain/buckets /opt/companion/recall-sidecar
+ReadWritePaths=/var/lib/companion/ombre-brain/recall /root/.cache
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX

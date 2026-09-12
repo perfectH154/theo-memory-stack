@@ -1,0 +1,24 @@
+[Unit]
+Description=Ombre read-only semantic recall sidecar
+After=network-online.target ombre-brain.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/companion/recall-sidecar
+ExecStart=/opt/companion/recall-sidecar/.venv/bin/python /opt/companion/recall-sidecar/service.py --index-db /var/lib/companion/ombre-brain/recall/recall.sqlite3 --host 127.0.0.1 --port 8788 --embedding-model BAAI/bge-small-zh-v1.5
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=120
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=false
+ReadOnlyPaths=/var/lib/companion/ombre-brain/buckets /opt/companion/recall-sidecar
+ReadWritePaths=/var/lib/companion/ombre-brain/recall /root/.cache
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

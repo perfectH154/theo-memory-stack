@@ -1,0 +1,34 @@
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+**/CLAUDE_CONNECT.txt
+*.local
+
+# Private memory and runtime state — never commit these
+**/buckets/
+**/data/
+**/logs/
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+**/*.jsonl
+
+# Installed dependencies and generated files
+.venv/
+node_modules/
+__pycache__/
+*.py[cod]
+dist/
+build/
+
+# Backups and local snapshots
+**/backup*/
+**/*.bak*
+**/*.backup*
+**/*.before-*
+**/*.orig
+**/*.prev*
+
+# Local transfer artifact
+source.tar.gz
